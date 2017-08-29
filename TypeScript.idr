@@ -1,7 +1,7 @@
 module TypeScript
 
 import IdrisScript
---import TypeScript.SyntaxKind
+import TypeScript.SyntaxKind
 
 %access export
 
@@ -10,7 +10,7 @@ import IdrisScript
 JSNode : JSType
 JSNode = JSObject "Node"
 
-createNode : String -> JS_IO (JSValue JSNode)
+createNode : SyntaxKind -> JS_IO (JSValue JSNode)
 createNode s = do
-  res <- jscall "typescript.createNode(typescript.SyntaxKind[(%0)])" (String -> JS_IO Ptr) s
+  res <- jscall "typescript.createNode(%0)" (Int -> JS_IO Ptr) (cast s)
   pure $ MkJSObject res
