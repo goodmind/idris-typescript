@@ -2,7 +2,15 @@ package typescript
 
 opts = "--codegen node --partial-eval"
 
+pkgs = idrisscript
+
 modules = TypeScript
+        , TypeScript.SyntaxKind
         , Test.TypeScript
+        , Test.TypeScript.SyntaxKind
+
+main = Main
+executable = meme
 
 tests = Test.TypeScript.example
+      , Test.TypeScript.SyntaxKind.example2
