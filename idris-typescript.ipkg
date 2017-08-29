@@ -1,5 +1,8 @@
 package typescript
 
-modules = TypeScript
+opts = "--codegen node --partial-eval"
 
-tests = Test.TypeScript
+modules = TypeScript
+        , Test.TypeScript
+
+tests = Test.TypeScript.example
